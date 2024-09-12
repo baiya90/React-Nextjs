@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import { usePathname } from "next/navigation";
 import Link from 'next/link';
 import { routePath } from "./const/routePath";
+import { AntdRegistry } from '@ant-design/nextjs-registry';
 // import { Comforter_Brush } from 'next/font/google'   设置全局字体
 import "./globals.css";
 
@@ -45,22 +46,24 @@ export default function RootLayout({
       <body
         className={` ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Link href={'/'}>
-            <span style={{color: pathname === routePath.home ?  '#1b62d580' : 'black' }}>· index page </span> 
-        </Link>
-        <br/>
-        <Link href={'/LayoutDashboard'}>
-          <span style={{color: pathname === routePath.layoutDashboard ?  '#1b62d580' : 'black' }}>· LayoutDashboard page</span> 
-        </Link>
-        <br/>
-        <Link href={'/LayoutDashboard/settings'}>
-          <span style={{color: pathname === routePath.layoutDashboardSettings ?  '#1b62d580' : 'black' }}>· LayoutDashboard template- settings  page</span> 
-        </Link>
-        <br/>
-        <Link href={'/LayoutDashboard/about'}>
-          <span style={{color: pathname === routePath.layoutDashboardAbout ?  '#1b62d580' : 'black' }}>· LayoutDashboard template- about  page</span> 
-        </Link>
-        {children}
+        <AntdRegistry>
+          <Link href={'/'}>
+              <span style={{color: pathname === routePath.home ?  '#1b62d580' : 'black' }}>· index page </span> 
+          </Link>
+          <br/>
+          <Link href={'/LayoutDashboard'}>
+            <span style={{color: pathname === routePath.layoutDashboard ?  '#1b62d580' : 'black' }}>· LayoutDashboard page</span> 
+          </Link>
+          <br/>
+          <Link href={'/LayoutDashboard/settings'}>
+            <span style={{color: pathname === routePath.layoutDashboardSettings ?  '#1b62d580' : 'black' }}>· LayoutDashboard template- settings  page</span> 
+          </Link>
+          <br/>
+          <Link href={'/LayoutDashboard/about'}>
+            <span style={{color: pathname === routePath.layoutDashboardAbout ?  '#1b62d580' : 'black' }}>· LayoutDashboard template- about  page</span> 
+          </Link>
+          {children}
+        </AntdRegistry>
       </body>
     </html>
   );
